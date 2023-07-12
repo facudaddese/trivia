@@ -1,4 +1,4 @@
-let puntos = 0;
+/*let puntos = 0;
 let intentos = 3;
 let rtaC = true;
 let rtaL = true;
@@ -8,10 +8,10 @@ alert("Bienvenido a las trivias de Futbol. Empecemos a sumar puntos!");
 alert("Intentos: " + intentos);
 alert("Puntos: " + puntos);
 
-function correcto() { alert("Correcto!!!"); } //funcion sin parametros
-function incorrecto() { alert("Incorrecto :("); } //funcion sin parametros
-function acumulados(puntosAcumulados) { alert(puntosAcumulados); } //funcion con parametros
-function chances(numeroIntentos) { return numeroIntentos; } //funcion con return
+const correcto = () => alert("Correcto!!!");
+const incorrecto = () => alert("Incorrecto :(");
+const acumulados = (puntosAcumulados) => alert(puntosAcumulados);
+const chances = (numeroIntentos) => numeroIntentos;
 
 while (intentos > 0 && intentos <= 3) {
 
@@ -91,4 +91,30 @@ switch (puntos) {
     case 3: alert("Excelente!!!");
         acumulados("Puntos acumulados: " + puntos);
         break;
+}*/
+
+class Jugadores {
+    constructor(nombreJ, nacionalidad, apodo, dorsal) {
+        this.nombreJ = nombreJ;
+        this.nacionalidad = nacionalidad;
+        this.apodo = apodo;
+        this.dorsal = dorsal;
+    }
 }
+
+class CulturaGeneral {
+    constructor(nombre, fecha) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+    }
+}
+
+let cr = new Jugadores("cristiano ronaldo", "portugues", "cr7", 7);
+let messi = new Jugadores("lionel messi", "argentino", "pulga", 10);
+let ney = new Jugadores("neymar jr", "brasilero", "ney", 10);
+
+let guerraMundial = new CulturaGeneral("primera guerra mundial", 1914)
+let muroBerlin = new CulturaGeneral("berlin", 1989);
+let titanic = new CulturaGeneral("titanic", 1912);
+
+const array = [Jugadores, CulturaGeneral];
