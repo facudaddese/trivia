@@ -91,14 +91,14 @@ while (intentos > 0 && intentos <= 4) {
         }
     }
 
-    if (intentos >= 1) { //corregir
+    if (intentos >= 1) {
 
         if (rtaF) {
 
             let año = prompt("En que año nacio Cristiano Ronaldo?");
-            let nac = 1985;
+            let nac = new Date("Febrero 5, 1985");
 
-            if (getFullYear() == año) {
+            if (nac.getFullYear() == año) {
                 puntos++;
                 correcto();
                 rtaF = false;
@@ -110,7 +110,7 @@ while (intentos > 0 && intentos <= 4) {
         }
     }
 
-    if (rtaC == false && rtaL == false && rtaN == false && rtaF == false) {
+    if ((rtaC == false) && (rtaL == false) && (rtaN == false) && (rtaF == false)) {
         intentos = 0;
     }
 }
@@ -126,10 +126,13 @@ switch (puntos) {
     case 1: alert("Podrias hacerlo mejor :)");
         acumulados("Puntos acumulados: " + puntos);
         break
-    case 2: alert("Muy bien!");
+    case 2: alert("Bien!");
         acumulados("Puntos acumulados: " + puntos);
         break;
-    case 3: alert("Excelente!!!");
+    case 3: alert("Muy bien!!");
+        acumulados("Puntos acumulados: " + puntos);
+        break;
+    case 4: alert("Excelente!!!");
         acumulados("Puntos acumulados: " + puntos);
         break;
 }
