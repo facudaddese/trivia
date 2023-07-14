@@ -1,8 +1,9 @@
-/*let puntos = 0;
-let intentos = 3;
+let puntos = 0;
+let intentos = 4;
 let rtaC = true;
 let rtaL = true;
 let rtaN = true;
+let rtaF = true;
 
 alert("Bienvenido a las trivias de Futbol. Empecemos a sumar puntos!");
 alert("Intentos: " + intentos);
@@ -13,15 +14,36 @@ const incorrecto = () => alert("Incorrecto :(");
 const acumulados = (puntosAcumulados) => alert(puntosAcumulados);
 const chances = (numeroIntentos) => numeroIntentos;
 
-while (intentos > 0 && intentos <= 3) {
+const arrayObjetos = [
+    {
+        nombre: "cristiano ronaldo",
+        pais: "portugal",
+        apodo: "cr7",
+        dorsal: 7
+    },
+    {
+        nombre: "lionel",
+        pais: "argentina",
+        apodo: "pulga",
+        dorsal: 10
+    },
+    {
+        nombre: "neymar jr",
+        pais: "brasil",
+        apodo: "ney",
+        dorsal: 10
+    }
+];
+
+while (intentos > 0 && intentos <= 4) {
 
     if (intentos >= 1) {
 
         if (rtaC) {
 
-            let cr = prompt("Cual es el apodo caracteristico de Cristiano Ronaldo?");
+            let cr7 = prompt("Cual es el apodo caracteristico de Cristiano Ronaldo?");
 
-            if (cr == "Cr7" || cr == "CR7" || cr == "cr7") {
+            if (cr7 === arrayObjetos[0].apodo) {
                 puntos++;
                 correcto();
                 rtaC = false;
@@ -39,7 +61,7 @@ while (intentos > 0 && intentos <= 3) {
 
             let lionel = prompt("Cual es el nombre de pila de Messi?");
 
-            if (lionel == "Lionel" || lionel == "LIONEL" || lionel == "lionel") {
+            if (arrayObjetos.some((item) => (item.nombre === lionel))) {
                 puntos++;
                 correcto();
                 rtaL = false;
@@ -55,9 +77,9 @@ while (intentos > 0 && intentos <= 3) {
 
         if (rtaN) {
 
-            let ney = prompt("En que pais nacio Neymar Jr?");
+            let brasil = prompt("En que pais nacio Neymar Jr?");
 
-            if (ney == "Brasil" || ney == "BRASIL" || ney == "brasil") {
+            if (arrayObjetos.some((item) => (item.pais === brasil))) {
                 puntos++;
                 correcto();
                 rtaN = false;
@@ -69,7 +91,26 @@ while (intentos > 0 && intentos <= 3) {
         }
     }
 
-    if (rtaC == false && rtaL == false && rtaN == false) {
+    if (intentos >= 1) { //corregir
+
+        if (rtaF) {
+
+            let año = prompt("En que año nacio Cristiano Ronaldo?");
+            let nac = 1985;
+
+            if (getFullYear() == año) {
+                puntos++;
+                correcto();
+                rtaF = false;
+            } else {
+                incorrecto();
+                intentos--;
+                alert(chances("Te queda/n intento/s: " + intentos));
+            }
+        }
+    }
+
+    if (rtaC == false && rtaL == false && rtaN == false && rtaF == false) {
         intentos = 0;
     }
 }
@@ -91,30 +132,4 @@ switch (puntos) {
     case 3: alert("Excelente!!!");
         acumulados("Puntos acumulados: " + puntos);
         break;
-}*/
-
-class Jugadores {
-    constructor(nombreJ, nacionalidad, apodo, dorsal) {
-        this.nombreJ = nombreJ;
-        this.nacionalidad = nacionalidad;
-        this.apodo = apodo;
-        this.dorsal = dorsal;
-    }
 }
-
-class CulturaGeneral {
-    constructor(nombre, fecha) {
-        this.nombre = nombre;
-        this.fecha = fecha;
-    }
-}
-
-let cr = new Jugadores("cristiano ronaldo", "portugues", "cr7", 7);
-let messi = new Jugadores("lionel messi", "argentino", "pulga", 10);
-let ney = new Jugadores("neymar jr", "brasilero", "ney", 10);
-
-let guerraMundial = new CulturaGeneral("primera guerra mundial", 1914)
-let muroBerlin = new CulturaGeneral("berlin", 1989);
-let titanic = new CulturaGeneral("titanic", 1912);
-
-const array = [Jugadores, CulturaGeneral];
