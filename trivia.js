@@ -1,138 +1,165 @@
-let puntos = 0;
-let intentos = 4;
-let rtaC = true;
-let rtaL = true;
-let rtaN = true;
-let rtaF = true;
+const preg = [
 
-alert("Bienvenido a las trivias de Futbol. Empecemos a sumar puntos!");
-alert("Intentos: " + intentos);
-alert("Puntos: " + puntos);
-
-const correcto = () => alert("Correcto!!!");
-const incorrecto = () => alert("Incorrecto :(");
-const acumulados = (puntosAcumulados) => alert(puntosAcumulados);
-const chances = (numeroIntentos) => numeroIntentos;
-
-const arrayObjetos = [
     {
-        nombre: "cristiano ronaldo",
-        pais: "portugal",
-        apodo: "cr7",
-        dorsal: 7
+        pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
     },
+
     {
-        nombre: "lionel",
-        pais: "argentina",
-        apodo: "pulga",
-        dorsal: 10
+        pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
     },
+
     {
-        nombre: "neymar jr",
-        pais: "brasil",
-        apodo: "ney",
-        dorsal: 10
-    }
-];
+        pregunta: "¿Donde debutó Neymar Jr?"
+    },
 
-while (intentos > 0 && intentos <= 4) {
+    {
+        pregunta: "¿En que año nacio Cristiano Ronaldo?"
+    },
 
-    if (intentos >= 1) {
+    {
+        pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
+    },
 
-        if (rtaC) {
+    {
+        pregunta: "¿Qué club tiene más títulos de la Champions League?"
+    },
 
-            let cr7 = prompt("Cual es el apodo caracteristico de Cristiano Ronaldo?");
+    {
+        pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
+    },
 
-            if (cr7 === arrayObjetos[0].apodo) {
-                puntos++;
-                correcto();
-                rtaC = false;
-            } else {
-                incorrecto();
-                intentos--;
-                alert(chances("Te queda/n intento/s: " + intentos));
-            }
-        }
-    }
+    {
+        pregunta: "¿En qué club jugaba Cristiano Ronaldo antes de ir al Manchester United?"
+    },
+]
 
-    if (intentos >= 1) {
+const opciones = [];
 
-        if (rtaL) {
+opciones.push(["Cristiano Ronaldo", "Lionel Messi", "Pele", "Josef Bican"]);
+opciones.push(["River", "Racing", "Newell's Old Boys", "Rosario Central"]);
+opciones.push(["Inter", "Santos", "Barcelona", "PSG"]);
+opciones.push([1985, 1990, 1987, 1986]);
+opciones.push([4, 5, 6, 7]);
+opciones.push(["Barcelona", "Milan", "Real Madrid", "Bayer Munich"]);
+opciones.push(["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappe", "Ronaldo Nazario"]);
+opciones.push(["Real Madrid", "Juventus", "Sporting de Lisboa", "Benfica"]);
 
-            let lionel = prompt("Cual es el nombre de pila de Messi?");
+const correctas = [0, 2, 1, 0, 3, 2, 1, 2];
 
-            if (arrayObjetos.some((item) => (item.nombre === lionel))) {
-                puntos++;
-                correcto();
-                rtaL = false;
-            } else {
-                incorrecto();
-                intentos--;
-                alert(chances("Te queda/n intento/s: " + intentos));
-            }
-        }
-    }
+/*-------------------*/
+/*PANTALLA DEL JUEGO*/
+/*-----------------*/
+let points = 0;
+let intentos = 1;
+let pos = 0;
 
-    if (intentos >= 1) {
+let jugar = document.getElementById("jugar");
+jugar.addEventListener("click", juego);
 
-        if (rtaN) {
 
-            let brasil = prompt("En que pais nacio Neymar Jr?");
+function juego() {
+    pos = 0;
+    intentos = 0;
+    jugar.style.display = "none";
+    let comenzarJuego = document.getElementById("comenzarJuego");
+    comenzarJuego.style.display = "block";
+    let footer = document.getElementById("footer");
+    footer.style.position = "static";
+    cargarPreguntas();
+}
 
-            if (arrayObjetos.some((item) => (item.pais === brasil))) {
-                puntos++;
-                correcto();
-                rtaN = false;
-            } else {
-                incorrecto();
-                intentos--;
-                alert(chances("Te queda/n intento/s: " + intentos));
-            }
-        }
-    }
+function cargarPreguntas() {
 
-    if (intentos >= 1) {
+    if (preg.length <= pos) {
+        pnts();
+    } else {
 
-        if (rtaF) {
+        limiar();
 
-            let año = prompt("En que año nacio Cristiano Ronaldo?");
-            let nac = new Date("Febrero 5, 1985");
+        let pregunta = document.getElementById("preguntas");
+        pregunta.innerHTML = preg[pos].pregunta;
 
-            if (nac.getFullYear() == año) {
-                puntos++;
-                correcto();
-                rtaF = false;
-            } else {
-                incorrecto();
-                intentos--;
-                alert(chances("Te queda/n intento/s: " + intentos));
-            }
-        }
-    }
+        let opcionUno = document.getElementById("opcionUno");
+        opcionUno.innerHTML = opciones[pos][0];
 
-    if ((rtaC == false) && (rtaL == false) && (rtaN == false) && (rtaF == false)) {
-        intentos = 0;
+        let opcionDos = document.getElementById("opcionDos");
+        opcionDos.innerText = opciones[pos][1];
+
+        let opcionTres = document.getElementById("opcionTres");
+        opcionTres.innerHTML = opciones[pos][2];
+
+        let opcionCuatro = document.getElementById("opcionCuatro");
+        opcionCuatro.innerHTML = opciones[pos][3];
+
     }
 }
 
-if (intentos == 0) {
-    alert("Se acabaron los intentos");
+function limiar() {
+    document.getElementById("opcionUno").className = "limpiado";
+    document.getElementById("opcionDos").className = "limpiado";
+    document.getElementById("opcionTres").className = "limpiado";
+    document.getElementById("opcionCuatro").className = "limpiado";
 }
 
-switch (puntos) {
-    case 0: alert("Intentalo mejor la proxima");
-        acumulados("Puntos acumulados: " + puntos);
-        break;
-    case 1: alert("Podrias hacerlo mejor :)");
-        acumulados("Puntos acumulados: " + puntos);
-        break
-    case 2: alert("Bien!");
-        acumulados("Puntos acumulados: " + puntos);
-        break;
-    case 3: alert("Muy bien!!");
-        acumulados("Puntos acumulados: " + puntos);
-        break;
-    case 4: alert("Excelente!!!");
-        acumulados("Puntos acumulados: " + puntos);
-        break;
+function correctaONo(opcionElegida) {
+    if (opcionElegida === correctas[pos]) {
+        switch (opcionElegida) {
+            case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
+                points++;
+                break;
+            case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
+                points++;
+                break;
+            case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
+                points++;
+                break;
+            case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
+                points++;
+                break;
+        }
+    } else {
+        switch (opcionElegida) {
+            case 0: document.getElementById("opcionUno").className = "rtaIncorrecta";
+                break;
+            case 1: document.getElementById("opcionDos").className = "rtaIncorrecta";
+                break;
+            case 2: document.getElementById("opcionTres").className = "rtaIncorrecta";
+                break;
+            case 3: document.getElementById("opcionCuatro").className = "rtaIncorrecta";
+                break;
+        }
+    }
+
+    pos++;
+    setTimeout(cargarPreguntas, 1000);
+}
+
+/*-----------------------------*/
+/*PANTALLA DEL PUNTAJE - FINAL*/
+/*---------------------------*/
+
+let puntaje = document.getElementById("puntaje");
+puntaje.addEventListener("click", pnts);
+
+function pnts() {
+    let comenzarJuego = document.getElementById("comenzarJuego");
+    comenzarJuego.style.display = "none";
+    let p = document.createElement("p");
+    p.innerHTML = "Puntos totales: " + points;
+    p = document.body.appendChild(p);
+    p.classList = "pPuntos";
+    let boton = document.createElement("button");
+    boton.innerHTML = "Volver al inicio";
+    boton.addEventListener("click", volver);
+    boton = document.body.appendChild(boton);
+    boton.classList = "pantallaFinal";
+    let footer = document.getElementById("footer");
+    footer.style.position = "absolute";
+
+    function volver() {
+        p.style.display = "none";
+        boton.style.display = "none";
+        jugar.style.display = "block";
+        jugar.classList = "pantallaPrincipal";
+    }
 }

@@ -4,12 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivia</title>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
 
-    <script src="./trivia.js"></script>
+    <section class="pantallaPrincipal">
+        <button id="jugar">Cuanto sabes de futbol?</button>
+    </section>
+
+    <section id="comenzarJuego" class="pantallaJuego">
+
+        <section class="preguntas">
+
+            <div class="titulo">
+                <h1>Quiz futbolero
+                    <hr>
+                </h1>
+            </div>
+
+            <div id="preguntas"> </div>
+
+            <button id="opcionUno" class="respuestas" onclick="correctaONo(0)"> </button>
+
+            <button id="opcionDos" class="respuestas" onclick="correctaONo(1)"> </button>
+
+            <button id="opcionTres" class="respuestas" onclick="correctaONo(2)"> </button>
+
+            <button id="opcionCuatro" class="respuestas" onclick="correctaONo(3)"> </button>
+
+        </section>
+
+        <section class="puntaje">
+            <button id="puntaje">Ver puntaje</button>
+        </section>
+
+    </section>
+
+    <footer id="footer">
+        <p>&copy2023. Juego de preguntas y respuestas realizado por Facundo D'addese</p>
+    </footer>
+
+    <script src="./quiz.js"></script>
 
 </body>
 
