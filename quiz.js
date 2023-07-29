@@ -161,5 +161,6 @@ function pnts() {
         boton.style.display = "none";
         jugar.style.display = "block";
         jugar.classList = "pantallaPrincipal";
+        points = 0;
     }
 }
