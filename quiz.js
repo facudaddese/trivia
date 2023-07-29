@@ -138,8 +138,8 @@ function correctaONo(opcionElegida) {
 /*PANTALLA DEL PUNTAJE - FINAL*/
 /*---------------------------*/
 
-let puntaje = document.getElementById("puntaje");
-puntaje.addEventListener("click", pnts);
+let abandonar = document.getElementById("abandonar");
+abandonar.addEventListener("click", pnts);
 
 function pnts() {
     let comenzarJuego = document.getElementById("comenzarJuego");
