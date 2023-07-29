@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 77, 164, 1) 40%, rgba(119, 76, 157, 1) 56%, rgba(163, 62, 83, 1) 100%);
+}
+
+.pantallaPrincipal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px;
+}
+
+.pantallaPrincipal button {
+    border-radius: 5px;
+    border: solid #cccdcc;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 77, 164, 1) 40%, rgba(119, 76, 157, 1) 56%, rgba(163, 62, 83, 1) 100%);
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 3px;
+    width: 200px;
+    height: 80px;
+    transition: .5s;
+}
+
+.pantallaPrincipal button:hover,
+.puntaje button:hover,
+.pantallaFinal:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.pantallaJuego {
+    display: none;
+}
+
+.preguntas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    gap: 30px;
+}
+
+.preguntas button,
+.preguntas div,
+.limpiado {
+    font-family: cursive;
+    text-align: center;
+    background-color: #e8dddd;
+    border-radius: 5%;
+    width: 450px;
+    padding: 15px;
+    border: solid #cccdcc;
+    font-size: 20px;
+}
+
+.preguntas .respuestas:hover,
+.limpiado:hover {
+    cursor: pointer;
+}
+
+.preguntas .titulo {
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 77, 164, 1) 40%, rgba(119, 76, 157, 1) 56%, rgba(163, 62, 83, 1) 100%);
+    border-radius: 0;
+}
+
+h1 {
+    font-family: 'Lugrasimo', cursive;
+    letter-spacing: 10px;
+    line-height: 2;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.pantallaJuego .preguntas .rtaCorrecta {
+    background-color: yellowgreen;
+    color: #ffffff;
+}
+
+.pantallaJuego .preguntas .rtaIncorrecta {
+    background-color: red;
+    color: #ffffff;
+}
+
+.puntaje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.pantallaFinal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.puntaje button,
+.pantallaFinal {
+    width: 175px;
+    height: 70px;
+    border-radius: 5px;
+    border: solid #cccdcc;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(115, 77, 164, 1) 40%, rgba(119, 76, 157, 1) 56%, rgba(163, 62, 83, 1) 100%);
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 3px;
+    transition: .5s;
+}
+
+.pPuntos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 70px;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+footer,
+.puntaje button,
+.pPuntos {
+    font-family: 'Signika', sans-serif;
+}
+
+footer {
+    padding: 15px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
