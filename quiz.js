@@ -142,15 +142,19 @@ function correctaONo(opcionElegida) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
+                localStorage.setItem("Puntos", points);
                 break;
             case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
                 points++;
+                localStorage.setItem("Puntos", points);
                 break;
             case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
                 points++;
+                localStorage.setItem("Puntos", points);
                 break;
             case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
                 points++;
+                localStorage.setItem("Puntos", points);
                 break;
         }
     } else {
@@ -191,6 +195,7 @@ function pnts() {
     boton.classList = "pantallaFinal";
     let footer = document.getElementById("footer");
     footer.style.position = "absolute";
+    localStorage.clear();
 
     function volver() {
         p.style.display = "none";
