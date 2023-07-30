@@ -201,7 +201,7 @@ function pnts() {
         p.style.display = "none";
         boton.style.display = "none";
         jugar.style.display = "block";
-        jugar.classList = "pantallaPrincipal";
+        //jugar.classList = "pantallaPrincipal";
         points = 0;
     }
 }
