@@ -1,3 +1,39 @@
+// {
+//     "preguntas"[
+//         {
+//             pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
+//         },
+
+//         {
+//             pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
+//         },
+
+//         {
+//             pregunta: "¿Donde debutó Neymar Jr?"
+//         },
+
+//         {
+//             pregunta: "¿En que año nacio Cristiano Ronaldo?"
+//         },
+
+//         {
+//             pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
+//         },
+
+//         {
+//             pregunta: "¿Qué club tiene más títulos de la Champions League?"
+//         },
+
+//         {
+//             pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
+//         },
+
+//         {
+//             pregunta: "¿En qué club jugaba Cristiano Ronaldo antes de ir al Manchester United?"
+//         }
+//     ]
+// }
+
 const preg = [
 
     {
