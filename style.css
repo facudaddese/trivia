@@ -55,7 +55,7 @@ body {
 .preguntas button,
 .preguntas div,
 .limpiado {
-    font-family: cursive;
+    font-family: 'Signika', sans-serif;
     text-align: center;
     background-color: #e8dddd;
     border-radius: 5%;
