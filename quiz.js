@@ -1,39 +1,3 @@
-// {
-//     "preguntas"[
-//         {
-//             pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
-//         },
-
-//         {
-//             pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
-//         },
-
-//         {
-//             pregunta: "¿Donde debutó Neymar Jr?"
-//         },
-
-//         {
-//             pregunta: "¿En que año nacio Cristiano Ronaldo?"
-//         },
-
-//         {
-//             pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
-//         },
-
-//         {
-//             pregunta: "¿Qué club tiene más títulos de la Champions League?"
-//         },
-
-//         {
-//             pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
-//         },
-
-//         {
-//             pregunta: "¿En qué club jugaba Cristiano Ronaldo antes de ir al Manchester United?"
-//         }
-//     ]
-// }
-
 const preg = [
 
     {
@@ -65,7 +29,7 @@ const preg = [
     },
 
     {
-        pregunta: "¿En qué club jugaba Cristiano Ronaldo antes de ir al Manchester United?"
+        pregunta: "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?"
     },
 ]
 
@@ -88,12 +52,16 @@ const correctas = [0, 2, 1, 0, 3, 2, 1, 2];
 let points = 0;
 let intentos = 1;
 let pos = 0;
+let ingresos = 0;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
 
 
 function juego() {
+    ingresos++;
+    //el sessionStorage lo uso para guardar cuantas veces el usuario inicio el juego sin cerrar la pagina
+    sessionStorage.setItem("Ingresos", ingresos);
     pos = 0;
     intentos = 0;
     jugar.style.display = "none";
@@ -109,24 +77,17 @@ function cargarPreguntas() {
     if (preg.length <= pos) {
         pnts();
     } else {
-
         limiar();
-
         let pregunta = document.getElementById("preguntas");
         pregunta.innerHTML = preg[pos].pregunta;
-
         let opcionUno = document.getElementById("opcionUno");
         opcionUno.innerHTML = opciones[pos][0];
-
         let opcionDos = document.getElementById("opcionDos");
         opcionDos.innerText = opciones[pos][1];
-
         let opcionTres = document.getElementById("opcionTres");
         opcionTres.innerHTML = opciones[pos][2];
-
         let opcionCuatro = document.getElementById("opcionCuatro");
         opcionCuatro.innerHTML = opciones[pos][3];
-
     }
 }
 
@@ -142,18 +103,22 @@ function correctaONo(opcionElegida) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
+                //a medida que se responda correctamente, se cargan los puntos en el localStorage
                 localStorage.setItem("Puntos", points);
                 break;
             case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
                 points++;
+                //a medida que se responda correctamente, se cargan los puntos en el localStorage
                 localStorage.setItem("Puntos", points);
                 break;
             case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
                 points++;
+                //a medida que se responda correctamente, se cargan los puntos en el localStorage
                 localStorage.setItem("Puntos", points);
                 break;
             case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
                 points++;
+                //a medida que se responda correctamente, se cargan los puntos en el localStorage
                 localStorage.setItem("Puntos", points);
                 break;
         }
@@ -195,13 +160,13 @@ function pnts() {
     boton.classList = "pantallaFinal";
     let footer = document.getElementById("footer");
     footer.style.position = "absolute";
+    //borro los puntos almacenados para que el proximo jugador inice el juego con 0 puntos
     localStorage.clear();
 
     function volver() {
         p.style.display = "none";
         boton.style.display = "none";
         jugar.style.display = "block";
-        //jugar.classList = "pantallaPrincipal";
         points = 0;
     }
 }
