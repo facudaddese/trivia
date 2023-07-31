@@ -59,8 +59,8 @@ jugar.addEventListener("click", juego);
 
 function juego() {
     ingresos++;
-    //el sessionStorage lo uso para guardar cuantas veces el usuario inicio el juego sin cerrar la pagina
-    sessionStorage.setItem("Ingresos", ingresos);
+    //el localStorage lo uso para guardar cuantas veces el usuario inicio el juego
+    localStorage.setItem("Ingresos", ingresos);
     pos = 0;
     jugar.style.display = "none";
     let comenzarJuego = document.getElementById("comenzarJuego");
@@ -101,23 +101,23 @@ function correctaONo(opcionElegida) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el localStorage
-                localStorage.setItem("Puntos", points);
+                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
+                sessionStorage.setItem("Puntos", points);
                 break;
             case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el localStorage
-                localStorage.setItem("Puntos", points);
+                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
+                sessionStorage.setItem("Puntos", points);
                 break;
             case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el localStorage
-                localStorage.setItem("Puntos", points);
+                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
+                sessionStorage.setItem("Puntos", points);
                 break;
             case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el localStorage
-                localStorage.setItem("Puntos", points);
+                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
+                sessionStorage.setItem("Puntos", points);
                 break;
         }
     } else {
@@ -158,13 +158,13 @@ function pnts() {
     boton.classList = "pantallaFinal";
     let footer = document.getElementById("footer");
     footer.style.position = "absolute";
-    //borro los puntos almacenados para que el proximo jugador inice el juego con 0 puntos
-    localStorage.clear();
 
     function volver() {
         p.style.display = "none";
         boton.style.display = "none";
         jugar.style.display = "block";
         points = 0;
+        //el sessionStorage.clear(); lo uso para que se borren los puntos almacenados, en caso que el usuario regrese al inicio.
+        sessionStorage.clear();
     }
 }
