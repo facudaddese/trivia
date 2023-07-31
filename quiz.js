@@ -50,7 +50,6 @@ const correctas = [0, 2, 1, 0, 3, 2, 1, 2];
 /*PANTALLA DEL JUEGO*/
 /*-----------------*/
 let points = 0;
-let intentos = 1;
 let pos = 0;
 let ingresos = 0;
 
@@ -63,7 +62,6 @@ function juego() {
     //el sessionStorage lo uso para guardar cuantas veces el usuario inicio el juego sin cerrar la pagina
     sessionStorage.setItem("Ingresos", ingresos);
     pos = 0;
-    intentos = 0;
     jugar.style.display = "none";
     let comenzarJuego = document.getElementById("comenzarJuego");
     comenzarJuego.style.display = "block";
