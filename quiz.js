@@ -1,4 +1,11 @@
 const preg = [
+    {
+        pregunta: "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
+    },
+
+    {
+        pregunta: "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?"
+    },
 
     {
         pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
@@ -35,6 +42,8 @@ const preg = [
 
 const opciones = [];
 
+opciones.push(["España 82", "USA 94", "Italia 90", "México 86"]);
+opciones.push([3, 4, 5, 6]);
 opciones.push(["Cristiano Ronaldo", "Lionel Messi", "Pele", "Josef Bican"]);
 opciones.push(["River", "Racing", "Newell's Old Boys", "Rosario Central"]);
 opciones.push(["Inter", "Santos", "Barcelona", "PSG"]);
@@ -44,7 +53,7 @@ opciones.push(["Barcelona", "Milan", "Real Madrid", "Bayer Munich"]);
 opciones.push(["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappe", "Ronaldo Nazario"]);
 opciones.push(["Real Madrid", "Juventus", "Sporting de Lisboa", "Benfica"]);
 
-const correctas = [0, 2, 1, 0, 3, 2, 1, 2];
+const correctas = [1, 2, 0, 2, 1, 0, 3, 2, 1, 2];
 
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
@@ -59,7 +68,6 @@ jugar.addEventListener("click", juego);
 
 function juego() {
     ingresos++;
-    //el localStorage lo uso para guardar cuantas veces el usuario inicio el juego
     localStorage.setItem("Ingresos", ingresos);
     pos = 0;
     jugar.style.display = "none";
@@ -101,22 +109,18 @@ function correctaONo(opcionElegida) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
                 sessionStorage.setItem("Puntos", points);
                 break;
             case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
                 sessionStorage.setItem("Puntos", points);
                 break;
             case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
                 sessionStorage.setItem("Puntos", points);
                 break;
             case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
                 points++;
-                //a medida que se responda correctamente, se cargan los puntos en el sessionStorage
                 sessionStorage.setItem("Puntos", points);
                 break;
         }
@@ -164,7 +168,6 @@ function pnts() {
         boton.style.display = "none";
         jugar.style.display = "block";
         points = 0;
-        //el sessionStorage.clear(); lo uso para que se borren los puntos almacenados, en caso que el usuario regrese al inicio.
         sessionStorage.clear();
     }
 }
