@@ -61,6 +61,7 @@ const correctas = [1, 2, 0, 2, 1, 0, 3, 2, 1, 2];
 let points = 0;
 let pos = 0;
 let ingresos = 0;
+let flag = false;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -149,25 +150,43 @@ let abandonar = document.getElementById("abandonar");
 abandonar.addEventListener("click", pnts);
 
 function pnts() {
-    let comenzarJuego = document.getElementById("comenzarJuego");
-    comenzarJuego.style.display = "none";
-    let p = document.createElement("p");
-    p.innerHTML = "Puntos totales: " + points;
-    p = document.body.appendChild(p);
-    p.classList = "pPuntos";
-    let boton = document.createElement("button");
-    boton.innerHTML = "Volver al inicio";
-    boton.addEventListener("click", volver);
-    boton = document.body.appendChild(boton);
-    boton.classList = "pantallaFinal";
-    let footer = document.getElementById("footer");
-    footer.style.position = "absolute";
+    swal({
+        title: "Estas seguro que quieres abandonar?",
+        text: "Si abandonas no podrás seguir sumando puntos!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                let comenzarJuego = document.getElementById("comenzarJuego");
+                comenzarJuego.style.display = "none";
+                let p = document.createElement("p");
+                p.innerHTML = "Puntos totales: " + points;
+                p = document.body.appendChild(p);
+                p.classList = "pPuntos";
+                let boton = document.createElement("button");
+                boton.innerHTML = "Volver al inicio";
+                boton.addEventListener("click", volver);
+                boton = document.body.appendChild(boton);
+                boton.classList = "pantallaFinal";
+                let footer = document.getElementById("footer");
+                footer.style.position = "absolute";
 
-    function volver() {
-        p.style.display = "none";
-        boton.style.display = "none";
-        jugar.style.display = "block";
-        points = 0;
-        sessionStorage.clear();
-    }
+                function volver() {
+                    p.style.display = "none";
+                    boton.style.display = "none";
+                    jugar.style.display = "block";
+                    points = 0;
+                    sessionStorage.clear();
+                }
+                swal("Juego terminado", {
+                    icon: "error",
+                });
+            } else {
+                swal("Sigues jugando!", {
+                    icon: "success",
+                });
+            }
+        });
 }
