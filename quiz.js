@@ -1,6 +1,26 @@
 const preg = [
     {
+        pregunta: "¿Cuál es el máximo goleador del fútbol argentino? (295)"
+    },
+
+    {
+        pregunta: "¿Como le dicen a Chacarita Juniors?"
+    },
+
+    {
+        pregunta: "¿Quien erró más penales en partidos consecutivos en el futbol argentino? (5)"
+    },
+
+    {
+        pregunta: "¿Cuál es el club con más descensos a la segunda categoría del futbo argentino? (10)"
+    },
+
+    {
         pregunta: "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
+    },
+
+    {
+        pregunta: "¿Quien fue el primer país en ser campeón del mundo?"
     },
 
     {
@@ -16,7 +36,7 @@ const preg = [
     },
 
     {
-        pregunta: "¿Donde debutó Neymar Jr?"
+        pregunta: "¿En qué club debutó como profesional Neymar Jr?"
     },
 
     {
@@ -42,7 +62,12 @@ const preg = [
 
 const opciones = [];
 
+opciones.push(["Erico", "Sand", "Filipo", "Palermo"]);
+opciones.push(["Bodegueros", "Quemeros", "Funebreros", "Sabaleros"]);
+opciones.push(["Sand", "Labruna", "Palermo", "Maradona"]);
+opciones.push(["Olimpo", "Atletico Rafaela", "Sarmiento", "Quilmes"]);
 opciones.push(["España 82", "USA 94", "Italia 90", "México 86"]);
+opciones.push(["Alemania", "Uruguay", "Brasil", "Argentina"]);
 opciones.push([3, 4, 5, 6]);
 opciones.push(["Cristiano Ronaldo", "Lionel Messi", "Pele", "Josef Bican"]);
 opciones.push(["River", "Racing", "Newell's Old Boys", "Rosario Central"]);
@@ -53,7 +78,7 @@ opciones.push(["Barcelona", "Milan", "Real Madrid", "Bayer Munich"]);
 opciones.push(["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappe", "Ronaldo Nazario"]);
 opciones.push(["Real Madrid", "Juventus", "Sporting de Lisboa", "Benfica"]);
 
-const correctas = [1, 2, 0, 2, 1, 0, 3, 2, 1, 2];
+const correctas = [0, 2, 3, 3, 1, 1, 2, 0, 2, 1, 0, 3, 2, 1, 2];
 
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
@@ -82,7 +107,7 @@ function juego() {
 function cargarPreguntas() {
 
     if (preg.length <= pos) {
-        pnts();
+        juegoTerminado();
     } else {
         limiar();
         let pregunta = document.getElementById("preguntas");
@@ -103,6 +128,42 @@ function limiar() {
     document.getElementById("opcionDos").className = "limpiado";
     document.getElementById("opcionTres").className = "limpiado";
     document.getElementById("opcionCuatro").className = "limpiado";
+}
+
+function juegoOf() {
+    let comenzarJuego = document.getElementById("comenzarJuego");
+    comenzarJuego.style.display = "none";
+    let p = document.createElement("p");
+    p.innerHTML = "Puntos totales: " + points;
+    p = document.body.appendChild(p);
+    p.classList = "pPuntos";
+    let boton = document.createElement("button");
+    boton.innerHTML = "Volver al inicio";
+    boton.addEventListener("click", volver);
+    boton = document.body.appendChild(boton);
+    boton.classList = "pantallaFinal";
+    let footer = document.getElementById("footer");
+    footer.style.position = "absolute";
+
+    function volver() {
+        p.style.display = "none";
+        boton.style.display = "none";
+        jugar.style.display = "block";
+        points = 0;
+        sessionStorage.clear();
+    }
+}
+function juegoTerminado() {
+    swal({
+        title: "Juego terminado!",
+        icon: "success",
+        button: "Ver puntaje",
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                juegoOf();
+            }
+        });
 }
 
 function correctaONo(opcionElegida) {
@@ -159,27 +220,8 @@ function pnts() {
     })
         .then((willDelete) => {
             if (willDelete) {
-                let comenzarJuego = document.getElementById("comenzarJuego");
-                comenzarJuego.style.display = "none";
-                let p = document.createElement("p");
-                p.innerHTML = "Puntos totales: " + points;
-                p = document.body.appendChild(p);
-                p.classList = "pPuntos";
-                let boton = document.createElement("button");
-                boton.innerHTML = "Volver al inicio";
-                boton.addEventListener("click", volver);
-                boton = document.body.appendChild(boton);
-                boton.classList = "pantallaFinal";
-                let footer = document.getElementById("footer");
-                footer.style.position = "absolute";
+                juegoOf();
 
-                function volver() {
-                    p.style.display = "none";
-                    boton.style.display = "none";
-                    jugar.style.display = "block";
-                    points = 0;
-                    sessionStorage.clear();
-                }
                 swal("Juego terminado", {
                     icon: "error",
                 });
