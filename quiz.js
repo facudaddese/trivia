@@ -1,6 +1,6 @@
 const preg = [
     {
-        pregunta: "¿Cuál es el máximo goleador del fútbol argentino? (295)"
+        pregunta: "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?"
     },
 
     {
@@ -8,11 +8,11 @@ const preg = [
     },
 
     {
-        pregunta: "¿Quien erró más penales en partidos consecutivos en el futbol argentino? (5)"
+        pregunta: "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?"
     },
 
     {
-        pregunta: "¿Cuál es el club con más descensos a la segunda categoría del futbo argentino? (10)"
+        pregunta: "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?"
     },
 
     {
@@ -52,6 +52,10 @@ const preg = [
     },
 
     {
+        pregunta: "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?"
+    },
+
+    {
         pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
     },
 
@@ -75,10 +79,11 @@ opciones.push(["Inter", "Santos", "Barcelona", "PSG"]);
 opciones.push([1985, 1990, 1987, 1986]);
 opciones.push([4, 5, 6, 7]);
 opciones.push(["Barcelona", "Milan", "Real Madrid", "Bayer Munich"]);
+opciones.push(["Juventus", "Liverpool", "Bayer Munich", "Atletico Madrid"]);
 opciones.push(["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappe", "Ronaldo Nazario"]);
 opciones.push(["Real Madrid", "Juventus", "Sporting de Lisboa", "Benfica"]);
 
-const correctas = [0, 2, 3, 3, 1, 1, 2, 0, 2, 1, 0, 3, 2, 1, 2];
+const correctas = [0, 2, 3, 3, 1, 1, 2, 0, 2, 1, 0, 3, 2, 0, 1, 2];
 
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
