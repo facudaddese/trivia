@@ -139,7 +139,7 @@ function juegoOf() {
     let comenzarJuego = document.getElementById("comenzarJuego");
     comenzarJuego.style.display = "none";
     let p = document.createElement("p");
-    p.innerHTML = "Puntos totales: " + points;
+    p.innerHTML = "Puntos totales: " + points + "/" + preg.length;
     p = document.body.appendChild(p);
     p.classList = "pPuntos";
     let boton = document.createElement("button");
