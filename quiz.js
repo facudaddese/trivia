@@ -96,7 +96,6 @@ let flag = false;
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
 
-
 function juego() {
     ingresos++;
     localStorage.setItem("Ingresos", ingresos);
@@ -110,7 +109,6 @@ function juego() {
 }
 
 function cargarPreguntas() {
-
     if (preg.length <= pos) {
         juegoTerminado();
     } else {
@@ -237,3 +235,16 @@ function pnts() {
             }
         });
 }
+
+/*
+const evento = (rta) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => { rta ? resolve("OK") : reject("ERROR"); }, 1000);
+    })
+}
+
+evento(true)
+    .catch((err) => { console.log(err) })
+    .then((res) => { console.log(res) })
+    .finally(() => { console.log("Final") });
+*/
