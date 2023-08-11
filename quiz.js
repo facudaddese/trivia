@@ -1,68 +1,68 @@
-const preg = [
-    {
-        pregunta: "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?"
-    },
+// const preg = [
+//     {
+//         pregunta: "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?"
+//     },
 
-    {
-        pregunta: "¿Como le dicen a Chacarita Juniors?"
-    },
+//     {
+//         pregunta: "¿Como le dicen a Chacarita Juniors?"
+//     },
 
-    {
-        pregunta: "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?"
-    },
+//     {
+//         pregunta: "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?"
+//     },
 
-    {
-        pregunta: "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?"
-    },
+//     {
+//         pregunta: "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?"
+//     },
 
-    {
-        pregunta: "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
-    },
+//     {
+//         pregunta: "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
+//     },
 
-    {
-        pregunta: "¿Quien fue el primer país en ser campeón del mundo?"
-    },
+//     {
+//         pregunta: "¿Quien fue el primer país en ser campeón del mundo?"
+//     },
 
-    {
-        pregunta: "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?"
-    },
+//     {
+//         pregunta: "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?"
+//     },
 
-    {
-        pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
-    },
+//     {
+//         pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
+//     },
 
-    {
-        pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
-    },
+//     {
+//         pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
+//     },
 
-    {
-        pregunta: "¿En qué club debutó como profesional Neymar Jr?"
-    },
+//     {
+//         pregunta: "¿En qué club debutó como profesional Neymar Jr?"
+//     },
 
-    {
-        pregunta: "¿En que año nacio Cristiano Ronaldo?"
-    },
+//     {
+//         pregunta: "¿En que año nacio Cristiano Ronaldo?"
+//     },
 
-    {
-        pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
-    },
+//     {
+//         pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
+//     },
 
-    {
-        pregunta: "¿Qué club tiene más títulos de la Champions League?"
-    },
+//     {
+//         pregunta: "¿Qué club tiene más títulos de la Champions League?"
+//     },
 
-    {
-        pregunta: "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?"
-    },
+//     {
+//         pregunta: "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?"
+//     },
 
-    {
-        pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
-    },
+//     {
+//         pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
+//     },
 
-    {
-        pregunta: "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?"
-    },
-]
+//     {
+//         pregunta: "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?"
+//     },
+// ]
 
 const opciones = [];
 
@@ -91,7 +91,6 @@ const correctas = [0, 2, 3, 3, 1, 1, 2, 0, 2, 1, 0, 3, 2, 0, 1, 2];
 let points = 0;
 let pos = 0;
 let ingresos = 0;
-let flag = false;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -106,6 +105,15 @@ function juego() {
     let footer = document.getElementById("footer");
     footer.style.position = "static";
     cargarPreguntas();
+}
+
+const getPreguntas = async () => {
+
+    try {
+        const rta = fetch("./questions.json");
+    } catch (error) {
+
+    }
 }
 
 function cargarPreguntas() {
