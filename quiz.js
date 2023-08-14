@@ -5,6 +5,7 @@ let points = 0;
 let pos = 0;
 let ingresos = 0;
 let rtaCorrecta;
+let data;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -27,6 +28,7 @@ function juego() {
 
 function cargarPreguntas(data) {
     if (data.length <= pos) {
+        console.log(data);
         juegoTerminado();
     } else {
         limpiar();
@@ -149,6 +151,10 @@ function correctaONo(opcionElegida) {
 
     pos++;
     setTimeout(cargarPreguntas, 1000);
+    // setTimeout(() => {
+    //     console.log(data);
+    //     cargarPreguntas(data)
+    // }, 1000);
 }
 
 /*-----------------------------*/
