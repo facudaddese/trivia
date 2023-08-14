@@ -4,6 +4,7 @@
 let points = 0;
 let pos = 0;
 let ingresos = 0;
+let rtaCorrecta;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -17,44 +18,59 @@ function juego() {
     comenzarJuego.style.display = "block";
     let footer = document.getElementById("footer");
     footer.style.position = "static";
-    cargarPreguntas();
+
+    fetch('./questions.json')
+        .then(res => res.json())
+        .then(data => cargarPreguntas(data))
+        .catch(error => { console.log(error); })
 }
 
-function cargarPreguntas() {
-    if (preg.length <= pos) {
+function cargarPreguntas(data) {
+    if (data.length <= pos) {
         juegoTerminado();
     } else {
-        limiar();
+        limpiar();
 
-        // fetch('./questions.json')
-        //     .then(res => res.json())
-        //     .then(data => mostrarData(data))
-        //     .catch(error => { console.log(error); })
+        // for (let i = 0; i < data.length; i++) {
 
-        // function mostrarData(data) {
-        //     for (let i = 0; i < data.length; i++) {
-        //         preguntas.innerHTML = data[i].pregunta;
-        //         document.getElementById("preguntas") = pregunta;
-
-        //         opcionUno.innerHTML = data[i].opcion1;
-        //         document.getElementById("opcionUno") = opcion1;
-
-        //         opcion2.innerHTML = data[i].opcion2;
-        //         document.getElementById("opcionDos") = opcion2;
-
-        //         opcion3.innerHTML = data[i].opcion3;
-        //         document.getElementById("opcionTres") = opcion3;
-
-        //         opcion4.innerHTML = data[i].opcion4;
-        //         document.getElementById("opcionCuatro") = opcion4;
-        //     }
+        //     document.getElementById("preguntas").textContent = data[i].pregunta;
+        //     rtaCorrecta = data[i].respuesta;
+        //     document.getElementById("opcionUno").textContent = data[i].opcion1;
+        //     rtaCorrecta = data[i].respuesta;
+        //     document.getElementById("opcionDos").textContent = data[i].opcion2;
+        //     rtaCorrecta = data[i].respuesta;
+        //     document.getElementById("opcionTres").textContent = data[i].opcion3;
+        //     rtaCorrecta = data[i].respuesta;
+        //     document.getElementById("opcionCuatro").textContent = data[i].opcion4;
+        //     rtaCorrecta = data[i].respuesta;
         // }
+
+        let i = 0;
+
+        let preguntas = document.getElementById("preguntas");
+        preguntas.innerHTML = data[i].pregunta;
+        rtaCorrecta = data[i].respuesta;
+
+        let opcionUno = document.getElementById("opcionUno");
+        opcionUno.innerHTML = data[i].opcion1;
+        rtaCorrecta = data[i].respuesta;
+
+        let opcionDos = document.getElementById("opcionDos");
+        opcionDos.innerHTML = data[i].opcion2;
+        rtaCorrecta = data[i].respuesta;
+
+        let opcionTres = document.getElementById("opcionTres");
+        opcionTres.innerHTML = data[i].opcion3;
+        rtaCorrecta = data[i].respuesta;
+
+        let opcionCuatro = document.getElementById("opcionCuatro");
+        opcionCuatro.innerHTML = data[i].opcion4;
+        rtaCorrecta = data[i].respuesta;
+
+        i++;
     }
 }
-
-
-
-function limiar() {
+function limpiar() {
     document.getElementById("opcionUno").className = "limpiado";
     document.getElementById("opcionDos").className = "limpiado";
     document.getElementById("opcionTres").className = "limpiado";
@@ -84,6 +100,7 @@ function juegoOf() {
         sessionStorage.clear();
     }
 }
+
 function juegoTerminado() {
     swal({
         title: "Juego terminado!",
@@ -98,7 +115,7 @@ function juegoTerminado() {
 }
 
 function correctaONo(opcionElegida) {
-    if (opcionElegida === respuestaCorrecta) { //modificar respuesta correcta
+    if (opcionElegida === rtaCorrecta) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
