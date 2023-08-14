@@ -1,50 +1,130 @@
 [
     {
-        "pregunta": "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?"
+        "pregunta": "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?",
+        "opcion1": "Erico",
+        "opcion2": "Sand",
+        "opcion3": "Filipo",
+        "opcion4": "Palermo",
+        "respuesta": 0
     },
     {
-        "pregunta": "¿Como le dicen a Chacarita Juniors?"
+        "pregunta": "¿Como le dicen a Chacarita Juniors?",
+        "opcion1": "Bodegueros",
+        "opcion2": "Quemeros",
+        "opcion3": "Funebreros",
+        "opcion4": "Sabaleros",
+        "respuesta": 2
     },
     {
-        "pregunta": "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?"
+        "pregunta": "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?",
+        "opcion1": "Sand",
+        "opcion2": "Labruna",
+        "opcion3": "Palermo",
+        "opcion4": "Maradona",
+        "respuesta": 3
     },
     {
-        "pregunta": "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?"
+        "pregunta": "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?",
+        "opcion1": "Olimpo",
+        "opcion2": "Atletico Rafaela",
+        "opcion3": "Sarmiento",
+        "opcion4": "Quilmes",
+        "respuesta": 3
     },
     {
-        "pregunta": "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
+        "pregunta": "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?",
+        "opcion1": "España 82",
+        "opcion2": "USA 94",
+        "opcion3": "Italia 90",
+        "opcion4": "México 86",
+        "respuesta": 1
     },
     {
-        "pregunta": "¿Quien fue el primer país en ser campeón del mundo?"
+        "pregunta": "¿Quien fue el primer país en ser campeón del mundo?",
+        "opcion1": "Alemania",
+        "opcion2": "Uruguay",
+        "opcion3": "Brasil",
+        "opcion4": "Argentina",
+        "respuesta": 1
     },
     {
-        "pregunta": "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?"
+        "pregunta": "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?",
+        "opcion1": 3,
+        "opcion2": 4,
+        "opcion3": 5,
+        "opcion4": 6,
+        "respuesta": 2
     },
     {
-        "pregunta": "¿Quién es el máximo goleador de la historia del futbol?"
+        "pregunta": "¿Quién es el máximo goleador de la historia del futbol?",
+        "opcion1": "Cristiano Ronaldo",
+        "opcion2": "Lionel Messi",
+        "opcion3": "Pele",
+        "opcion4": "Josef Bican",
+        "respuesta": 0
     },
     {
-        "pregunta": "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
+        "pregunta": "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?",
+        "opcion1": "River",
+        "opcion2": "Racing",
+        "opcion3": "Newell's Old Boys",
+        "opcion4": "Rosario Central",
+        "respuesta": 2
     },
     {
-        "pregunta": "¿En qué club debutó como profesional Neymar Jr?"
+        "pregunta": "¿En qué club debutó como profesional Neymar Jr?",
+        "opcion1": "Palmeiras",
+        "opcion2": "Santos",
+        "opcion3": "Flamengo",
+        "opcion4": "Fluminense",
+        "respuesta": 1
     },
     {
-        "pregunta": "¿En que año nacio Cristiano Ronaldo?"
+        "pregunta": "¿En que año nacio Cristiano Ronaldo?",
+        "opcion1": 1985,
+        "opcion2": 1990,
+        "opcion3": 1987,
+        "opcion4": 1989,
+        "respuesta": 0
     },
     {
-        "pregunta": "¿Cuantos Balones de Oro tiene Lionel Messi?"
+        "pregunta": "¿Cuantos Balones de Oro tiene Lionel Messi?",
+        "opcion1": 4,
+        "opcion2": 5,
+        "opcion3": 6,
+        "opcion4": 7,
+        "respuesta": 3
     },
     {
-        "pregunta": "¿Qué club tiene más títulos de la Champions League?"
+        "pregunta": "¿Qué club tiene más títulos de la Champions League?",
+        "opcion1": "Barcelona",
+        "opcion2": "Milan",
+        "opcion3": "Real Madrid",
+        "opcion4": "Bayer Munich",
+        "respuesta": 2
     },
     {
-        "pregunta": "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?"
+        "pregunta": "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?",
+        "opcion1": "Juventus",
+        "opcion2": "Liverpool",
+        "opcion3": "Bayer Munich",
+        "opcion4": "Atletico Madrid",
+        "respuesta": 0
     },
     {
-        "pregunta": "¿Quién es el máximo goleador de la historia de la Champions League?"
+        "pregunta": "¿Quién es el máximo goleador de la historia de la Champions League?",
+        "opcion1": "Lionel Messi",
+        "opcion2": "Cristiano Ronaldo",
+        "opcion3": "Kylian Mbappe",
+        "opcion4": "Ronaldo Nazario",
+        "respuesta": 1
     },
     {
-        "pregunta": "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?"
+        "pregunta": "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?",
+        "opcion1": "Real Madrid",
+        "opcion2": "Juventus",
+        "opcion3": "Sporting de Lisboa",
+        "opcion4": "Benfica",
+        "respuesta": 2
     }
 ]

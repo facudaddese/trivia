@@ -1,90 +1,3 @@
-// const preg = [
-//     {
-//         pregunta: "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?"
-//     },
-
-//     {
-//         pregunta: "¿Como le dicen a Chacarita Juniors?"
-//     },
-
-//     {
-//         pregunta: "¿Quien erró más penales (5) en partidos consecutivos en el futbol argentino?"
-//     },
-
-//     {
-//         pregunta: "¿Cuál es el club con más descensos (10) a la segunda categoría del futbo argentino?"
-//     },
-
-//     {
-//         pregunta: "¿En qué Mundial Maradona dijo, 'me cortaron las piernas'?"
-//     },
-
-//     {
-//         pregunta: "¿Quien fue el primer país en ser campeón del mundo?"
-//     },
-
-//     {
-//         pregunta: "¿Cuántos goles hizo Diego Maradona en el mundial de México 86?"
-//     },
-
-//     {
-//         pregunta: "¿Quién es el máximo goleador de la historia del futbol?"
-//     },
-
-//     {
-//         pregunta: "Messi jugó toda su carrera profesional para el FC Barcelona, ¿pero en qué club dio sus primeros pasos?"
-//     },
-
-//     {
-//         pregunta: "¿En qué club debutó como profesional Neymar Jr?"
-//     },
-
-//     {
-//         pregunta: "¿En que año nacio Cristiano Ronaldo?"
-//     },
-
-//     {
-//         pregunta: "¿Cuantos Balones de Oro tiene Lionel Messi?"
-//     },
-
-//     {
-//         pregunta: "¿Qué club tiene más títulos de la Champions League?"
-//     },
-
-//     {
-//         pregunta: "¿A que equipo, estando en cuartos de final de la Uefa Champions League, Cristiano Ronaldo le hizo un gol de chilena ?"
-//     },
-
-//     {
-//         pregunta: "¿Quién es el máximo goleador de la historia de la Champions League?"
-//     },
-
-//     {
-//         pregunta: "¿En qué club jugó Cristiano Ronaldo antes de ir al Manchester United en su primera etapa (2003-2009)?"
-//     },
-// ]
-
-const opciones = [];
-
-opciones.push(["Erico", "Sand", "Filipo", "Palermo"]);
-opciones.push(["Bodegueros", "Quemeros", "Funebreros", "Sabaleros"]);
-opciones.push(["Sand", "Labruna", "Palermo", "Maradona"]);
-opciones.push(["Olimpo", "Atletico Rafaela", "Sarmiento", "Quilmes"]);
-opciones.push(["España 82", "USA 94", "Italia 90", "México 86"]);
-opciones.push(["Alemania", "Uruguay", "Brasil", "Argentina"]);
-opciones.push([3, 4, 5, 6]);
-opciones.push(["Cristiano Ronaldo", "Lionel Messi", "Pele", "Josef Bican"]);
-opciones.push(["River", "Racing", "Newell's Old Boys", "Rosario Central"]);
-opciones.push(["Inter", "Santos", "Barcelona", "PSG"]);
-opciones.push([1985, 1990, 1987, 1986]);
-opciones.push([4, 5, 6, 7]);
-opciones.push(["Barcelona", "Milan", "Real Madrid", "Bayer Munich"]);
-opciones.push(["Juventus", "Liverpool", "Bayer Munich", "Atletico Madrid"]);
-opciones.push(["Lionel Messi", "Cristiano Ronaldo", "Kylian Mbappe", "Ronaldo Nazario"]);
-opciones.push(["Real Madrid", "Juventus", "Sporting de Lisboa", "Benfica"]);
-
-const correctas = [0, 2, 3, 3, 1, 1, 2, 0, 2, 1, 0, 3, 2, 0, 1, 2];
-
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
 /*-----------------*/
@@ -107,32 +20,39 @@ function juego() {
     cargarPreguntas();
 }
 
-const getPreguntas = async () => {
-
-    try {
-        const rta = fetch("./questions.json");
-    } catch (error) {
-
-    }
-}
-
 function cargarPreguntas() {
     if (preg.length <= pos) {
         juegoTerminado();
     } else {
         limiar();
-        let pregunta = document.getElementById("preguntas");
-        pregunta.innerHTML = preg[pos].pregunta;
-        let opcionUno = document.getElementById("opcionUno");
-        opcionUno.innerHTML = opciones[pos][0];
-        let opcionDos = document.getElementById("opcionDos");
-        opcionDos.innerText = opciones[pos][1];
-        let opcionTres = document.getElementById("opcionTres");
-        opcionTres.innerHTML = opciones[pos][2];
-        let opcionCuatro = document.getElementById("opcionCuatro");
-        opcionCuatro.innerHTML = opciones[pos][3];
+
+        // fetch('./questions.json')
+        //     .then(res => res.json())
+        //     .then(data => mostrarData(data))
+        //     .catch(error => { console.log(error); })
+
+        // function mostrarData(data) {
+        //     for (let i = 0; i < data.length; i++) {
+        //         preguntas.innerHTML = data[i].pregunta;
+        //         document.getElementById("preguntas") = pregunta;
+
+        //         opcionUno.innerHTML = data[i].opcion1;
+        //         document.getElementById("opcionUno") = opcion1;
+
+        //         opcion2.innerHTML = data[i].opcion2;
+        //         document.getElementById("opcionDos") = opcion2;
+
+        //         opcion3.innerHTML = data[i].opcion3;
+        //         document.getElementById("opcionTres") = opcion3;
+
+        //         opcion4.innerHTML = data[i].opcion4;
+        //         document.getElementById("opcionCuatro") = opcion4;
+        //     }
+        // }
     }
 }
+
+
 
 function limiar() {
     document.getElementById("opcionUno").className = "limpiado";
@@ -145,7 +65,7 @@ function juegoOf() {
     let comenzarJuego = document.getElementById("comenzarJuego");
     comenzarJuego.style.display = "none";
     let p = document.createElement("p");
-    p.innerHTML = "Puntos totales: " + points + "/" + preg.length;
+    p.innerHTML = "Puntos totales: " + points + "/16";
     p = document.body.appendChild(p);
     p.classList = "pPuntos";
     let boton = document.createElement("button");
@@ -178,7 +98,7 @@ function juegoTerminado() {
 }
 
 function correctaONo(opcionElegida) {
-    if (opcionElegida === correctas[pos]) {
+    if (opcionElegida === respuestaCorrecta) { //modificar respuesta correcta
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
                 points++;
