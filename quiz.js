@@ -6,7 +6,7 @@ let pos = 0;
 let ingresos = 0;
 let rtaCorrecta;
 let data;
-let i = 0;
+let dataLength;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -23,17 +23,20 @@ function juego() {
 
     fetch('./questions.json')
         .then(res => res.json())
-        .then(data => cargarPreguntas(data))
+        .then(data => {
+            dataLength = data.length;
+            cargarPreguntas(data)
+        })
         .catch(error => { console.log(error); })
 }
 
 function cargarPreguntas(data) {
-    if (data.length <= pos) { //error
+    if (dataLength <= pos) {
         juegoTerminado();
     } else {
         limpiar();
 
-        // for (let i = 0; i < data.length; i++) {
+        // for (let i = 0; i < data.Length; i++) {
 
         //     document.getElementById("preguntas").textContent = data[i].pregunta;
         //     rtaCorrecta = data[i].respuesta;
@@ -47,29 +50,30 @@ function cargarPreguntas(data) {
         //     rtaCorrecta = data[i].respuesta;
         // }
 
-        let preguntas = document.getElementById("preguntas");
-        preguntas.innerHTML = data[i].pregunta;
-        rtaCorrecta = data[i].respuesta;
+        //---------------------------------------------------
 
-        let opcionUno = document.getElementById("opcionUno");
-        opcionUno.innerHTML = data[i].opcion1;
-        rtaCorrecta = data[i].respuesta;
+        // let preguntas = document.getElementById("preguntas");
+        // preguntas.innerHTML = data[pos].pregunta;
+        // rtaCorrecta = data[pos].respuesta;
 
-        let opcionDos = document.getElementById("opcionDos");
-        opcionDos.innerHTML = data[i].opcion2;
-        rtaCorrecta = data[i].respuesta;
+        // let opcionUno = document.getElementById("opcionUno");
+        // opcionUno.innerHTML = data[pos].opcion1;
+        // rtaCorrecta = data[pos].respuesta;
 
-        let opcionTres = document.getElementById("opcionTres");
-        opcionTres.innerHTML = data[i].opcion3;
-        rtaCorrecta = data[i].respuesta;
+        // let opcionDos = document.getElementById("opcionDos");
+        // opcionDos.innerHTML = data[pos].opcion2;
+        // rtaCorrecta = data[pos].respuesta;
 
-        let opcionCuatro = document.getElementById("opcionCuatro");
-        opcionCuatro.innerHTML = data[i].opcion4;
-        rtaCorrecta = data[i].respuesta;
+        // let opcionTres = document.getElementById("opcionTres");
+        // opcionTres.innerHTML = data[pos].opcion3;
+        // rtaCorrecta = data[pos].respuesta;
 
-        i++;
+        // let opcionCuatro = document.getElementById("opcionCuatro");
+        // opcionCuatro.innerHTML = data[pos].opcion4;
+        // rtaCorrecta = data[pos].respuesta;
     }
 }
+
 function limpiar() {
     document.getElementById("opcionUno").className = "limpiado";
     document.getElementById("opcionDos").className = "limpiado";
