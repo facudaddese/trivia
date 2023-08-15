@@ -6,6 +6,7 @@ let pos = 0;
 let ingresos = 0;
 let rtaCorrecta;
 let data;
+let i = 0;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -27,8 +28,7 @@ function juego() {
 }
 
 function cargarPreguntas(data) {
-    if (data.length <= pos) {
-        console.log(data);
+    if (data.length <= pos) { //error
         juegoTerminado();
     } else {
         limpiar();
@@ -46,8 +46,6 @@ function cargarPreguntas(data) {
         //     document.getElementById("opcionCuatro").textContent = data[i].opcion4;
         //     rtaCorrecta = data[i].respuesta;
         // }
-
-        let i = 0;
 
         let preguntas = document.getElementById("preguntas");
         preguntas.innerHTML = data[i].pregunta;
@@ -150,11 +148,9 @@ function correctaONo(opcionElegida) {
     }
 
     pos++;
-    setTimeout(cargarPreguntas, 1000);
-    // setTimeout(() => {
-    //     console.log(data);
-    //     cargarPreguntas(data)
-    // }, 1000);
+    setTimeout(() => {
+        cargarPreguntas(data)
+    }, 1000);
 }
 
 /*-----------------------------*/
