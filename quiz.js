@@ -7,6 +7,8 @@ let ingresos = 0;
 let rtaCorrecta;
 let data;
 let dataLength;
+let preg = [];
+let opc = [];
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -24,6 +26,9 @@ function juego() {
     fetch('./questions.json')
         .then(res => res.json())
         .then(data => {
+            for (let i = 0; i < data.length; i++) { //guardo individualmente cada pregunta
+                preg[i] = data[i].pregunta;
+            }
             dataLength = data.length;
             cargarPreguntas(data)
         })
@@ -31,26 +36,26 @@ function juego() {
 }
 
 function cargarPreguntas(data) {
+    //for (let i = 0; i < data.length; i++) { console.log(preg[i]); }
+    //console.log(data);
     if (dataLength <= pos) {
         juegoTerminado();
     } else {
         limpiar();
 
-        // for (let i = 0; i < data.Length; i++) {
+        datos.forEach(el => {
+            document.getElementById("preguntas").textContent = el.pregunta;
+            rtaCorrecta = el.respuesta;
+            document.getElementById("opcionUno").textContent = el.opcion1;
+            rtaCorrecta = el.respuesta;
+            document.getElementById("opcionDos").textContent = el.opcion2;
+            rtaCorrecta = el.respuesta;
+            document.getElementById("opcionTres").textContent = el.opcion3;
+            rtaCorrecta = el.respuesta;
+            document.getElementById("opcionCuatro").textContent = el.opcion4;
+            rtaCorrecta = el.respuesta;
+        });
 
-        //     document.getElementById("preguntas").textContent = data[i].pregunta;
-        //     rtaCorrecta = data[i].respuesta;
-        //     document.getElementById("opcionUno").textContent = data[i].opcion1;
-        //     rtaCorrecta = data[i].respuesta;
-        //     document.getElementById("opcionDos").textContent = data[i].opcion2;
-        //     rtaCorrecta = data[i].respuesta;
-        //     document.getElementById("opcionTres").textContent = data[i].opcion3;
-        //     rtaCorrecta = data[i].respuesta;
-        //     document.getElementById("opcionCuatro").textContent = data[i].opcion4;
-        //     rtaCorrecta = data[i].respuesta;
-        // }
-
-        //---------------------------------------------------
 
         // let preguntas = document.getElementById("preguntas");
         // preguntas.innerHTML = data[pos].pregunta;
@@ -85,7 +90,7 @@ function juegoOf() {
     let comenzarJuego = document.getElementById("comenzarJuego");
     comenzarJuego.style.display = "none";
     let p = document.createElement("p");
-    p.innerHTML = "Puntos totales: " + points + "/16";
+    p.innerHTML = "Puntos totales: " + points + "/" + dataLength;
     p = document.body.appendChild(p);
     p.classList = "pPuntos";
     let boton = document.createElement("button");
