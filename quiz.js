@@ -36,6 +36,7 @@ function juego() {
 }
 
 function cargarPreguntas(data) {
+    //verifico si las preguntas se guardaron correctamente
     //for (let i = 0; i < data.length; i++) { console.log(preg[i]); }
     //console.log(data);
     if (dataLength <= pos) {
@@ -43,7 +44,7 @@ function cargarPreguntas(data) {
     } else {
         limpiar();
 
-        datos.forEach(el => {
+        data.forEach(el => {
             document.getElementById("preguntas").textContent = el.pregunta;
             rtaCorrecta = el.respuesta;
             document.getElementById("opcionUno").textContent = el.opcion1;
