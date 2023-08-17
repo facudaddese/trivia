@@ -1,13 +1,5 @@
 [
     {
-        "pregunta": "¿Cuál es el máximo goleador del fútbol argentino con 295 tantos?",
-        "opcion1": "Erico",
-        "opcion2": "Sand",
-        "opcion3": "Filipo",
-        "opcion4": "Palermo",
-        "respuesta": 0
-    },
-    {
         "pregunta": "¿Como le dicen a Chacarita Juniors?",
         "opcion1": "Bodegueros",
         "opcion2": "Quemeros",

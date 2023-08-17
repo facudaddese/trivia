@@ -1,8 +1,7 @@
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
 /*-----------------*/
-let points = 0;
-let pos = 0;
+let points;
 let ingresos = 0;
 let rtaCorrecta;
 let data;
@@ -12,9 +11,9 @@ let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
 
 function juego() {
+    points = 0;
     ingresos++;
     localStorage.setItem("Ingresos", ingresos);
-    pos = 0;
     jugar.style.display = "none";
     let comenzarJuego = document.getElementById("comenzarJuego");
     comenzarJuego.style.display = "block";
@@ -25,13 +24,13 @@ function juego() {
         .then(res => res.json())
         .then(data => {
             dataLength = data.length;
-            cargarPreguntas(data)
+            cargarPreguntas(data, 0);
         })
         .catch(error => { console.log(error); })
 }
 
 function cargarPreguntas(data, currentPos) {
-    if (currentPos >= dataLength) {
+    if (dataLength <= currentPos) {
         juegoTerminado();
     } else {
         limpiar();
