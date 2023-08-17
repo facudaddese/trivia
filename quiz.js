@@ -7,8 +7,6 @@ let ingresos = 0;
 let rtaCorrecta;
 let data;
 let dataLength;
-let preg = [];
-let opc = [];
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -26,57 +24,37 @@ function juego() {
     fetch('./questions.json')
         .then(res => res.json())
         .then(data => {
-            for (let i = 0; i < data.length; i++) { //guardo individualmente cada pregunta
-                preg[i] = data[i].pregunta;
-            }
             dataLength = data.length;
             cargarPreguntas(data)
         })
         .catch(error => { console.log(error); })
 }
 
-function cargarPreguntas(data) {
-    //verifico si las preguntas se guardaron correctamente
-    //for (let i = 0; i < data.length; i++) { console.log(preg[i]); }
-    //console.log(data);
-    if (dataLength <= pos) {
+function cargarPreguntas(data, currentPos) {
+    if (currentPos >= dataLength) {
         juegoTerminado();
     } else {
         limpiar();
 
-        data.forEach(el => {
-            document.getElementById("preguntas").textContent = el.pregunta;
-            rtaCorrecta = el.respuesta;
-            document.getElementById("opcionUno").textContent = el.opcion1;
-            rtaCorrecta = el.respuesta;
-            document.getElementById("opcionDos").textContent = el.opcion2;
-            rtaCorrecta = el.respuesta;
-            document.getElementById("opcionTres").textContent = el.opcion3;
-            rtaCorrecta = el.respuesta;
-            document.getElementById("opcionCuatro").textContent = el.opcion4;
-            rtaCorrecta = el.respuesta;
-        });
+        const el = data[currentPos];
 
+        document.getElementById("preguntas").textContent = el.pregunta;
+        rtaCorrecta = el.respuesta;
 
-        // let preguntas = document.getElementById("preguntas");
-        // preguntas.innerHTML = data[pos].pregunta;
-        // rtaCorrecta = data[pos].respuesta;
+        let btn1 = document.getElementById("opcionUno");
+        let btn2 = document.getElementById("opcionDos");
+        let btn3 = document.getElementById("opcionTres");
+        let btn4 = document.getElementById("opcionCuatro");
 
-        // let opcionUno = document.getElementById("opcionUno");
-        // opcionUno.innerHTML = data[pos].opcion1;
-        // rtaCorrecta = data[pos].respuesta;
+        btn1.textContent = el.opcion1;
+        btn2.textContent = el.opcion2;
+        btn3.textContent = el.opcion3;
+        btn4.textContent = el.opcion4;
 
-        // let opcionDos = document.getElementById("opcionDos");
-        // opcionDos.innerHTML = data[pos].opcion2;
-        // rtaCorrecta = data[pos].respuesta;
-
-        // let opcionTres = document.getElementById("opcionTres");
-        // opcionTres.innerHTML = data[pos].opcion3;
-        // rtaCorrecta = data[pos].respuesta;
-
-        // let opcionCuatro = document.getElementById("opcionCuatro");
-        // opcionCuatro.innerHTML = data[pos].opcion4;
-        // rtaCorrecta = data[pos].respuesta;
+        btn1.addEventListener("click", () => correctaONo(data, currentPos, 0));
+        btn2.addEventListener("click", () => correctaONo(data, currentPos, 1));
+        btn3.addEventListener("click", () => correctaONo(data, currentPos, 2));
+        btn4.addEventListener("click", () => correctaONo(data, currentPos, 3));
     }
 }
 
@@ -124,7 +102,7 @@ function juegoTerminado() {
         });
 }
 
-function correctaONo(opcionElegida) {
+function correctaONo(data, currentPos, opcionElegida) {
     if (opcionElegida === rtaCorrecta) {
         switch (opcionElegida) {
             case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
@@ -157,9 +135,9 @@ function correctaONo(opcionElegida) {
         }
     }
 
-    pos++;
+    currentPos++;
     setTimeout(() => {
-        cargarPreguntas(data)
+        cargarPreguntas(data, currentPos);
     }, 1000);
 }
 
