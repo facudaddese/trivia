@@ -1,16 +1,16 @@
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
 /*-----------------*/
-let points = 0;
+let points;
 let ingresos = 0;
 let rtaCorrecta;
-let data;
 let dataLength;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
 
 function juego() {
+    points = 0;
     ingresos++;
     localStorage.setItem("Ingresos", ingresos);
     jugar.style.display = "none";
@@ -19,9 +19,18 @@ function juego() {
     let footer = document.getElementById("footer");
     footer.style.position = "static";
 
+    // fetch('./questions.json')
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         dataLength = data.length;
+    //         cargarPreguntas(data, 0);
+    //     })
+    //     .catch(error => { console.log(error); })
+
     fetch('./questions.json')
         .then(res => res.json())
-        .then(data => {
+        .then(d => {
+            data = d;
             dataLength = data.length;
             cargarPreguntas(data, 0);
         })
