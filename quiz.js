@@ -1,7 +1,7 @@
 /*-------------------*/
 /*PANTALLA DEL JUEGO*/
 /*-----------------*/
-let points;
+let points = 0;
 let ingresos = 0;
 let rtaCorrecta;
 let data;
@@ -11,7 +11,6 @@ let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
 
 function juego() {
-    points = 0;
     ingresos++;
     localStorage.setItem("Ingresos", ingresos);
     jugar.style.display = "none";
