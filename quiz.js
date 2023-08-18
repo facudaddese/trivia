@@ -5,6 +5,7 @@ let points;
 let ingresos = 0;
 let rtaCorrecta;
 let dataLength;
+let data;
 
 let jugar = document.getElementById("jugar");
 jugar.addEventListener("click", juego);
@@ -19,18 +20,9 @@ function juego() {
     let footer = document.getElementById("footer");
     footer.style.position = "static";
 
-    // fetch('./questions.json')
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         dataLength = data.length;
-    //         cargarPreguntas(data, 0);
-    //     })
-    //     .catch(error => { console.log(error); })
-
     fetch('./questions.json')
         .then(res => res.json())
-        .then(d => {
-            data = d;
+        .then(data => {
             dataLength = data.length;
             cargarPreguntas(data, 0);
         })
