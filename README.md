@@ -1,6 +1,6 @@
 # Trivia futbolera
-En mi camino por ser un FrontEnd Developer, hice mi primer juego con JS. Una trivia sobre fútbol para jugar con amigos, el que hace más puntos gana!.
-
+> En mi camino para convertirme en FrontEnd Developer, desarrollé mi primer juego con JavaScript: una trivia de fútbol para jugar con amigos. El objetivo es acumular la mayor cantidad de puntos posible para ganar.
+ 
 ## Uso de:
 
  1. Condicionales.
