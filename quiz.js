@@ -22,40 +22,48 @@ function juego() {
 
     fetch('./questions.json')
         .then(res => res.json())
-        .then(data => {
+        .then(fetchedData => {
+            data = fetchedData;
             dataLength = data.length;
             cargarPreguntas(data, 0);
         })
-        .catch(error => { console.log(error); })
+        .catch(error => {
+            console.log(error);
+        });
 }
 
 function cargarPreguntas(data, currentPos) {
-    if (dataLength <= currentPos) {
-        juegoTerminado();
+    if (currentPos >= dataLength) {
+        juegoTerminado(); // Terminar el juego si ya pasamos todas las preguntas
     } else {
-        limpiar();
+        limpiar(); // Limpiamos las respuestas anteriores
 
-        const el = data[currentPos];
+        const el = data[currentPos]; // Obtener la pregunta actual
 
         document.getElementById("preguntas").textContent = el.pregunta;
-        rtaCorrecta = el.respuesta;
+        rtaCorrecta = el.respuesta; // Asignar la respuesta correcta
 
-        let btn1 = document.getElementById("opcionUno");
-        let btn2 = document.getElementById("opcionDos");
-        let btn3 = document.getElementById("opcionTres");
-        let btn4 = document.getElementById("opcionCuatro");
+        // Asignar las opciones a los botones
+        document.getElementById("opcionUno").textContent = el.opcion1;
+        document.getElementById("opcionDos").textContent = el.opcion2;
+        document.getElementById("opcionTres").textContent = el.opcion3;
+        document.getElementById("opcionCuatro").textContent = el.opcion4;
 
-        btn1.textContent = el.opcion1;
-        btn2.textContent = el.opcion2;
-        btn3.textContent = el.opcion3;
-        btn4.textContent = el.opcion4;
+        // Eliminar event listeners anteriores
+        const botones = ["opcionUno", "opcionDos", "opcionTres", "opcionCuatro"];
+        botones.forEach(id => {
+            const boton = document.getElementById(id);
+            boton.replaceWith(boton.cloneNode(true)); // Remueve el event listener anterior
+        });
 
-        btn1.addEventListener("click", () => correctaONo(data, currentPos, 0));
-        btn2.addEventListener("click", () => correctaONo(data, currentPos, 1));
-        btn3.addEventListener("click", () => correctaONo(data, currentPos, 2));
-        btn4.addEventListener("click", () => correctaONo(data, currentPos, 3));
+        // Asignar nuevos event listeners
+        document.getElementById("opcionUno").addEventListener("click", () => correctaONo(data, currentPos, 0));
+        document.getElementById("opcionDos").addEventListener("click", () => correctaONo(data, currentPos, 1));
+        document.getElementById("opcionTres").addEventListener("click", () => correctaONo(data, currentPos, 2));
+        document.getElementById("opcionCuatro").addEventListener("click", () => correctaONo(data, currentPos, 3));
     }
 }
+
 
 function limpiar() {
     document.getElementById("opcionUno").className = "limpiado";
@@ -91,54 +99,57 @@ function juegoOf() {
 function juegoTerminado() {
     swal({
         title: "Juego terminado!",
+        text: `Tu puntaje final es: ${points} de ${dataLength}`, // Mostrar el puntaje final
         icon: "success",
         button: "Ver puntaje",
     })
         .then((willDelete) => {
             if (willDelete) {
-                juegoOf();
+                juegoOf(); // Mostrar pantalla final con el puntaje total
             }
         });
 }
 
+
 function correctaONo(data, currentPos, opcionElegida) {
+    // Verificar si la opción elegida es la correcta
     if (opcionElegida === rtaCorrecta) {
+        // Respuesta correcta, sumamos un punto
+        points++;
+        sessionStorage.setItem("Puntos", points); // Guardamos los puntos en sessionStorage
+
+        // Actualizamos el botón correspondiente con clase de respuesta correcta
         switch (opcionElegida) {
-            case 0: document.getElementById("opcionUno").className = "rtaCorrecta";
-                points++;
-                sessionStorage.setItem("Puntos", points);
-                break;
-            case 1: document.getElementById("opcionDos").className = "rtaCorrecta";
-                points++;
-                sessionStorage.setItem("Puntos", points);
-                break;
-            case 2: document.getElementById("opcionTres").className = "rtaCorrecta";
-                points++;
-                sessionStorage.setItem("Puntos", points);
-                break;
-            case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta";
-                points++;
-                sessionStorage.setItem("Puntos", points);
-                break;
+            case 0: document.getElementById("opcionUno").className = "rtaCorrecta"; break;
+            case 1: document.getElementById("opcionDos").className = "rtaCorrecta"; break;
+            case 2: document.getElementById("opcionTres").className = "rtaCorrecta"; break;
+            case 3: document.getElementById("opcionCuatro").className = "rtaCorrecta"; break;
         }
     } else {
+        // Respuesta incorrecta, actualizamos el botón correspondiente con clase de respuesta incorrecta
         switch (opcionElegida) {
-            case 0: document.getElementById("opcionUno").className = "rtaIncorrecta";
-                break;
-            case 1: document.getElementById("opcionDos").className = "rtaIncorrecta";
-                break;
-            case 2: document.getElementById("opcionTres").className = "rtaIncorrecta";
-                break;
-            case 3: document.getElementById("opcionCuatro").className = "rtaIncorrecta";
-                break;
+            case 0: document.getElementById("opcionUno").className = "rtaIncorrecta"; break;
+            case 1: document.getElementById("opcionDos").className = "rtaIncorrecta"; break;
+            case 2: document.getElementById("opcionTres").className = "rtaIncorrecta"; break;
+            case 3: document.getElementById("opcionCuatro").className = "rtaIncorrecta"; break;
         }
     }
 
+    // Actualizamos la posición para cargar la siguiente pregunta
     currentPos++;
-    setTimeout(() => {
-        cargarPreguntas(data, currentPos);
-    }, 1000);
+
+    // Comprobamos si hay más preguntas, si no terminamos el juego
+    if (currentPos < dataLength) {
+        setTimeout(() => {
+            cargarPreguntas(data, currentPos);
+        }, 1000); // Esperamos 1 segundo antes de cargar la siguiente pregunta
+    } else {
+        setTimeout(() => {
+            juegoTerminado();
+        }, 1000); // Al terminar, mostramos el mensaje de fin de juego
+    }
 }
+
 
 /*-----------------------------*/
 /*PANTALLA DEL PUNTAJE - FINAL*/
@@ -169,3 +180,4 @@ function pnts() {
             }
         });
 }
+
