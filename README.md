@@ -6,7 +6,7 @@
 
  1. Condicionales.
  2. Bucles.
- 3. Json..
+ 3. Json.
  4. Local Storage.
  5. Fetch.
  6. Funciones.
