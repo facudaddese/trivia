@@ -64,7 +64,6 @@ function cargarPreguntas(data, currentPos) {
     }
 }
 
-
 function limpiar() {
     document.getElementById("opcionUno").className = "limpiado";
     document.getElementById("opcionDos").className = "limpiado";
@@ -110,7 +109,6 @@ function juegoTerminado() {
         });
 }
 
-
 function correctaONo(data, currentPos, opcionElegida) {
     // Verificar si la opción elegida es la correcta
     if (opcionElegida === rtaCorrecta) {
@@ -150,7 +148,6 @@ function correctaONo(data, currentPos, opcionElegida) {
     }
 }
 
-
 /*-----------------------------*/
 /*PANTALLA DEL PUNTAJE - FINAL*/
 /*---------------------------*/
@@ -180,4 +177,3 @@ function pnts() {
             }
         });
 }
-

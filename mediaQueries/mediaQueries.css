@@ -1,0 +1,34 @@
+@media (max-width:600px) {
+
+    .preguntas button,
+    .preguntas div,
+    .limpiado {
+        width: 100%;
+    }
+}
+
+@media (max-width:350px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .preguntas button,
+    .preguntas div,
+    .limpiado {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width:320px) {
+
+    h1 {
+        font-size: 17px;
+    }
+
+    .preguntas button,
+    .preguntas div,
+    .limpiado {
+        font-size: 15px;
+    }
+}

@@ -6,19 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="mediaQueries/mediaQueries.css">
 </head>
 
 <body>
-
     <section class="pantallaPrincipal">
         <button id="jugar">¿Cuanto sabes de futbol?</button>
     </section>
 
     <section id="comenzarJuego" class="pantallaJuego">
-
         <section class="preguntas">
-
             <div class="titulo">
                 <h1>Quiz futbolero
                     <hr>
@@ -28,27 +26,21 @@
             <div id="preguntas"> </div>
 
             <button id="opcionUno" class="respuestas"> </button>
-
             <button id="opcionDos" class="respuestas"> </button>
-
             <button id="opcionTres" class="respuestas"> </button>
-
             <button id="opcionCuatro" class="respuestas"> </button>
-
         </section>
 
         <section class="puntaje">
             <button id="abandonar">Abandonar</button>
         </section>
-
     </section>
 
     <footer id="footer">
-        <p>&copy2023. Juego de preguntas y respuestas realizado por Facundo D'addese</p>
+        <p>&copy2023. Trivia Futbolera realizada por <a href="https://www.linkedin.com/in/facundodaddese/" target="_blank" rel="noopener noreferrer">Facundo D'Addese</a></p>
     </footer>
 
-    <script src="./quiz.js"></script>
-
+    <script src="js/index.js"></script>
 </body>
 
 </html>

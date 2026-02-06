@@ -146,3 +146,8 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+footer > p{
+    text-align: center;
+    padding: 10px;
+}
