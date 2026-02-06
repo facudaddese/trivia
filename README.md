@@ -1,11 +1,12 @@
+
 # Trivia futbolera
-> En mi camino para convertirme en FrontEnd Developer, desarrollé mi primer juego con JavaScript: una trivia de fútbol para jugar con amigos. El objetivo es acumular la mayor cantidad de puntos posible para ganar.
+> En mi camino para convertirme en FrontEnd Developer, desarrollé mi primer juego con JavaScript: una trivia de fútbol para jugar con amigos. El objetivo es acumular la mayor cantidad de puntos posible para ganar. [Ver sitio](https://facudaddese.github.io/trivia/)
  
 ## Uso de:
 
  1. Condicionales.
  2. Bucles.
- 3. Json..
+ 3. Json.
  4. Local Storage.
  5. Fetch.
  6. Funciones.
